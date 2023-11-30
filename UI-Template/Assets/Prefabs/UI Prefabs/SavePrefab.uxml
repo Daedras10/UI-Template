@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/SaveContainer.uss?fileID=7433441132597879392&amp;guid=9f649796ade1f7349859969cc6d569b0&amp;type=3#SaveContainer" />
+    <ui:VisualElement name="Full" class="Container" style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row; height: 50%;">
+            <ui:VisualElement style="flex-grow: 1; width: 50%;">
+                <ui:VisualElement class="CharacterPortait" style="flex-grow: 1;">
+                    <ui:VisualElement name="Image" class="CharImg" style="flex-grow: 0; height: 75%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="PlayerInfo" style="flex-grow: 1; width: 50%;">
+                <ui:TextField picking-mode="Ignore" label="..." value="filler text" name="SlotName" class="NameContainer" />
+                <ui:ProgressBar value="0" title="0%" tooltip="Game Progress" name="ProgressBar" class="Progress" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement class="Bottom" style="flex-grow: 1; height: 50%; padding-top: 20%; padding-right: 20%; padding-bottom: 20%; padding-left: 20%;">
+            <ui:Button text="Start new&#10; game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NewGameB" class="CreateNewGame" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

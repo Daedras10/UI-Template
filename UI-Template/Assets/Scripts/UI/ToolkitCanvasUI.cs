@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 namespace UI
 {
-    public class UIToolkitCanvas : MonoBehaviour
+    public class ToolkitCanvasUI : MonoBehaviour
     {
         [SerializeField] protected UIDocument menuUiDocument;
         protected VisualElement root;

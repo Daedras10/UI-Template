@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/Settings.uss?fileID=7433441132597879392&amp;guid=3ba498fa1d37c4944a8cb07681aaa868&amp;type=3#Settings" />
+    <Style src="project://database/Assets/UI/Styles/PauseMenu.uss?fileID=7433441132597879392&amp;guid=0ee5c7dde99777046abca4a778aa68df&amp;type=3#PauseMenu" />
+    <ui:VisualElement name="Background" class="Background" style="flex-grow: 1;">
+        <ui:VisualElement name="CloseBg" style="flex-grow: 1; padding-top: 5%; padding-right: 20%; padding-bottom: 5%; padding-left: 20%;">
+            <ui:VisualElement name="SettingContainer" class="SettingsContainer" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 100%; height: 100%; -unity-text-align: upper-center; align-self: stretch; flex-direction: column; align-items: flex-start;">
+                <ui:VisualElement style="flex-grow: 1; width: 100%; height: 50%; flex-direction: row;">
+                    <ui:Button text="Resume" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResumeB" class="PauseMenuButton" style="flex-grow: 1; flex-shrink: 1;" />
+                    <ui:Button text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SettingsB" class="PauseMenuButton" style="flex-grow: 1; flex-shrink: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; width: 100%; height: 50%; flex-direction: row;">
+                    <ui:Button text="Main&#10;Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuB" class="PauseMenuButton" style="flex-grow: 1; flex-shrink: 1;" />
+                    <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitB" class="PauseMenuButton" style="flex-grow: 1; flex-shrink: 1; transition-property: rotate; transition-duration: 1s;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

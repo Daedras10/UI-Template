@@ -1,21 +1,27 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace UI
 {
-    public class MainMenu : UIToolkitCanvas
+    public class MainMenuUI : ToolkitCanvasUI
     {
-        [SerializeField] private UISettings uiSettings;
+        [SerializeField] private SettingsUI settingsUI;
+        [SerializeField] private SavesUI savesUI;
         [SerializeField] private bool playerHasSaves = false;
         
         private Button settingsButton;
+        private Button playButton;
         
         protected override void Init()
         {
             settingsButton = GetButtonFromTmplInst("SettingsB");
-            Debug.Log($"{settingsButton}");
-            settingsButton.RegisterCallback<ClickEvent>(ev => uiSettings.ShowSettings());
+            settingsButton.RegisterCallback<ClickEvent>(ev => settingsUI.ShowSettings());
+            
+            playButton = GetButtonFromTmplInst("PlayB");
+            playButton.RegisterCallback<ClickEvent>(ev => savesUI.Show());
+            
             
             if (!playerHasSaves) // TODO : Check if player has saves
             {

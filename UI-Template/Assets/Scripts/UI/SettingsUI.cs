@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 namespace UI
 {
-    public class UISettings : UIToolkitCanvas
+    public class SettingsUI : ToolkitCanvasUI
     {
         public event Action OnClose;
 

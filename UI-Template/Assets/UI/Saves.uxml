@@ -1,9 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SavePrefab" src="project://database/Assets/Prefabs/UI%20Prefabs/SavePrefab.uxml?fileID=9197481963319205126&amp;guid=c8ed22a45eb20d24184ded4a7b0aeff0&amp;type=3#SavePrefab" />
+    <Style src="project://database/Assets/UI/Styles/SaveContainer.uss?fileID=7433441132597879392&amp;guid=9f649796ade1f7349859969cc6d569b0&amp;type=3#SaveContainer" />
+    <Style src="project://database/Assets/UI/Styles/Settings.uss?fileID=7433441132597879392&amp;guid=3ba498fa1d37c4944a8cb07681aaa868&amp;type=3#Settings" />
+    <ui:VisualElement name="Settings" style="flex-grow: 1;">
+        <ui:VisualElement name="Background" class="Background" style="flex-grow: 1;">
+            <ui:VisualElement name="CloseBg" style="flex-grow: 1; padding-top: 5%; padding-right: 20%; padding-bottom: 5%; padding-left: 20%;">
+                <ui:VisualElement name="SettingContainer" class="SettingsContainer" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 100%; height: 100%; -unity-text-align: upper-center; align-self: flex-start; flex-direction: column; align-items: center;">
+                    <ui:Label tabindex="-1" text="Save slots" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Settings_tile" class="SettingsTitle" style="height: 10%; font-size: 70%; width: 40%; margin-top: 3%; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-shrink: 1; width: 100%; flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; padding-top: 3%; padding-left: 0; padding-bottom: 3%;">
+                        <ui:Instance template="SavePrefab" name="Save1" style="flex-grow: 1;" />
+                        <ui:Instance template="SavePrefab" name="Save2" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

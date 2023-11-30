@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SavePrefab" src="project://database/Assets/Prefabs/UI%20Prefabs/SavePrefab.uxml?fileID=9197481963319205126&amp;guid=c8ed22a45eb20d24184ded4a7b0aeff0&amp;type=3#SavePrefab" />
+    <Style src="project://database/Assets/UI/Styles/SaveContainer.uss?fileID=7433441132597879392&amp;guid=9f649796ade1f7349859969cc6d569b0&amp;type=3#SaveContainer" />
+    <ui:Instance template="SavePrefab" name="SavePrefab" style="flex-grow: 1;" />
+</ui:UXML>
