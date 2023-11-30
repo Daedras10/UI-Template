@@ -1,10 +1,44 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MainMenuButton" src="project://database/Assets/Prefabs/UI%20Prefabs/MainMenuButton.uxml?fileID=9197481963319205126&amp;guid=1b4acaf0cc9ff2a48b906a79ec169f3e&amp;type=3#MainMenuButton" />
     <Style src="project://database/Assets/UI/Styles/Settings.uss?fileID=7433441132597879392&amp;guid=3ba498fa1d37c4944a8cb07681aaa868&amp;type=3#Settings" />
-    <ui:VisualElement name="Settings" style="flex-grow: 1; display: flex;">
+    <ui:VisualElement name="Settings" style="flex-grow: 1; display: flex; visibility: visible;">
         <ui:VisualElement name="Background" class="Background" style="flex-grow: 1;">
             <ui:VisualElement name="CloseBg" style="flex-grow: 1; padding-top: 5%; padding-right: 20%; padding-bottom: 5%; padding-left: 20%;">
                 <ui:VisualElement name="SettingContainer" class="SettingsContainer" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 100%; height: 100%; -unity-text-align: upper-center; align-self: flex-start; flex-direction: column; align-items: center;">
                     <ui:Label tabindex="-1" text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Settings_tile" class="SettingsTitle" style="height: 10%; font-size: 70%; width: 40%; margin-top: 3%; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
+                    <ui:VisualElement name="ButtonsContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-around; align-self: stretch; margin-top: 3%; margin-bottom: 3%;">
+                        <ui:Instance template="MainMenuButton" name="AudioB" class="SelectedButton" style="flex-shrink: 0;">
+                            <AttributeOverrides element-name="MainMenuB" text="Audio" />
+                        </ui:Instance>
+                        <ui:Instance template="MainMenuButton" name="GameplayB" style="flex-shrink: 0;">
+                            <AttributeOverrides element-name="MainMenuB" text="Gameplay" />
+                        </ui:Instance>
+                        <ui:Instance template="MainMenuButton" name="MainMenuButton" style="flex-shrink: 0;" />
+                        <ui:Instance template="MainMenuButton" name="MainMenuButton" style="flex-shrink: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="OptionsContainer" style="flex-grow: 8; width: 100%; padding-top: 5%; padding-right: 8%; padding-bottom: 5%; padding-left: 8%;">
+                        <ui:VisualElement name="AudioContainer" class="OptContainers" style="flex-grow: 1;">
+                            <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
+                                <ui:Slider picking-mode="Ignore" label="Sound" value="42" high-value="100" class="Opt" style="width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
+                                <ui:Toggle label="Muted" class="Opt" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="GameplayContainer" class="OptContainers" style="flex-grow: 1; visibility: visible; display: flex;">
+                            <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
+                                <ui:MinMaxSlider picking-mode="Ignore" label="Cube random Scale" min-value="1" max-value="3" low-limit="1" high-limit="5" class="Opt" style="flex-grow: 1;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
+                                <ui:DropdownField label="Color" index="-1" choices="Red,Green,Blue" class="Opt" style="flex-grow: 1;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; height: 15%;">
+                                <ui:Foldout text="Other options" name="Foldout" value="false" class="Opt" style="flex-grow: 1;">
+                                    <ui:RadioButtonGroup label="Radio Button Group" value="-1" choices="A,B,C,D" usage-hints="None" style="flex-grow: 1;" />
+                                </ui:Foldout>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

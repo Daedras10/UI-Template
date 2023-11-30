@@ -41,3 +41,7 @@
 .MainMenuButton:disabled {
     scale: 1 1;
 }
+
+.SelectedButton {
+    background-color: rgb(255, 0, 0);
+}
