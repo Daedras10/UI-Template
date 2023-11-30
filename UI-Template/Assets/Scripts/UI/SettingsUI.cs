@@ -24,7 +24,7 @@ namespace UI
             settingContainer.RegisterCallback<ClickEvent>(ev => ev.StopPropagation());
         }
 
-        private void HideSettings()
+        public void HideSettings()
         {
             root.style.visibility = Visibility.Hidden;
             OnClose?.Invoke();
