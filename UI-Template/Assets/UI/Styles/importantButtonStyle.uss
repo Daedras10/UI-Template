@@ -1,0 +1,10 @@
+.Icon {
+    transition-property: rotate;
+    transition-duration: 1s;
+}
+
+.Icon:hover {
+    rotate: 360deg;
+    transition-duration: 1s;
+    transition-property: rotate;
+}

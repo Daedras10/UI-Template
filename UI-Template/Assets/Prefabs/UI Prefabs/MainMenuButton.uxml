@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/MainMenuButton.uss?fileID=7433441132597879392&amp;guid=4c1f274e06ae8eb49ab298a02284b7e3&amp;type=3#MainMenuButton" />
+    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuB" class="MainMenuButton" style="-unity-text-align: middle-center; width: 100%; height: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; font-size: 32%;" />
+</ui:UXML>

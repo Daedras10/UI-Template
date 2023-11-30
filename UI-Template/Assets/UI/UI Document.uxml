@@ -1,0 +1,29 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MainMenuButton" src="project://database/Assets/Prefabs/UI%20Prefabs/MainMenuButton.uxml?fileID=9197481963319205126&amp;guid=1b4acaf0cc9ff2a48b906a79ec169f3e&amp;type=3#MainMenuButton" />
+    <Style src="project://database/Assets/UI/Styles/importantButtonStyle.uss?fileID=7433441132597879392&amp;guid=ddd3978cd7032bd41bf589d0df2b3407&amp;type=3#importantButtonStyle" />
+    <ui:VisualElement name="FullBackground" style="flex-grow: 0; width: 100%; height: 100%; justify-content: space-between; align-items: center; flex-direction: column; position: relative; background-image: url(&apos;project://database/Assets/Ressources/Background.jpg?fileID=2800000&amp;guid=81b58f7eaaca1124e9c198d7440122ce&amp;type=3#Background&apos;); flex-shrink: 0;">
+        <ui:VisualElement name="Up_background" style="background-color: rgba(255, 1, 1, 0); width: 100%; height: 40%; align-items: center; justify-content: flex-start; flex-shrink: 0;">
+            <ui:VisualElement style="flex-grow: 0; width: 30%; height: 60%; background-color: rgba(0, 0, 0, 0.64); -unity-text-align: upper-center; align-items: auto; margin-top: 3%; background-image: url(&apos;project://database/Assets/Ressources/GameNamePlaceolder%201920x1080.png?fileID=2800000&amp;guid=f7b3d1352923f144dbf1d77cfa7fd5c6&amp;type=3#GameNamePlaceolder 1920x1080&apos;); scale: 1 1; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="DownPart" style="flex-grow: 1; flex-shrink: 0; width: 100%; height: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 40px; padding-right: 40px; padding-bottom: 40px; padding-left: 40px; align-self: flex-start; justify-content: center; align-items: flex-start; flex-direction: row;">
+            <ui:VisualElement name="Left" style="flex-grow: 1; height: 100%;" />
+            <ui:VisualElement name="Middle" style="flex-grow: 1; height: 100%; align-items: center; justify-content: flex-start; align-self: stretch; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%;">
+                <ui:Instance template="MainMenuButton" name="PlayB" style="scale: 1 1; width: 50%; flex-grow: 1; height: 20%; margin-top: 3%;">
+                    <AttributeOverrides element-name="MainMenuB" text="Play" />
+                </ui:Instance>
+                <ui:Instance template="MainMenuButton" name="LoadB" style="scale: 1 1; width: 50%; flex-grow: 1; height: 20%; margin-top: 3%;">
+                    <AttributeOverrides element-name="MainMenuB" text="Load" />
+                </ui:Instance>
+                <ui:Instance template="MainMenuButton" name="SettingsB" style="scale: 1 1; width: 50%; flex-grow: 1; height: 20%; margin-top: 3%;">
+                    <AttributeOverrides element-name="MainMenuB" text="Settings" />
+                </ui:Instance>
+                <ui:Instance template="MainMenuButton" name="QuitB" style="scale: 1 1; -unity-text-align: upper-left; width: 50%; flex-grow: 1; height: 20%; margin-top: 3%;">
+                    <AttributeOverrides element-name="MainMenuB" text="Quit" />
+                </ui:Instance>
+            </ui:VisualElement>
+            <ui:VisualElement name="Right" style="flex-grow: 1; height: 100%; align-items: flex-end; justify-content: flex-end; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
+                <ui:VisualElement name="rounded-logo-img" class="Icon" style="background-image: url(&apos;project://database/Assets/Ressources/Icon.png?fileID=2800000&amp;guid=a5a2e51e127bf6045bab52aa13c81131&amp;type=3#Icon&apos;); height: 25%; width: 25%; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
