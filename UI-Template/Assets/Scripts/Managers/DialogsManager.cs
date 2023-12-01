@@ -100,8 +100,6 @@ namespace Managers
             
             var dialog = JsonLoader.GetDialog(dialogData.id);
             
-            //TODO : check for choices
-            
             DisplayDialog(dialog, GameData.chosenLanguage);
         }
 

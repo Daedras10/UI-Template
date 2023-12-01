@@ -19,8 +19,6 @@ public class SavesUI : ToolkitCanvasUI
         var settingContainer = root.Q<VisualElement>("SettingContainer");
         settingContainer.RegisterCallback<ClickEvent>(ev => ev.StopPropagation());
         
-        // TODO : buttons to start game
-        // TODO : Init saves
         SetupButton("Save1", "Save 1");
         SetupButton("Save2", "Save 2");
     }
