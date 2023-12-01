@@ -26,6 +26,9 @@ namespace Gameplay
         private void RecalculateData()
         {
             float scale = Random.Range(GameData.cubeScaleMin, GameData.cubeScaleMax);
+            
+            if (player == null) return;
+            
             player.localScale = new Vector3(scale, scale, 1);
             
             playerMaterial.color = GameData.cubeColor;

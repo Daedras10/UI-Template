@@ -107,5 +107,33 @@ namespace Managers
             }
         }
         
+        public static string GetChoosenDialog(string id)
+        {
+            var dialog = GetDialog(id);
+            switch (GameData.chosenLanguage)
+            {
+                case ChosenLanguage.English:
+                    return dialog.texten;
+                case ChosenLanguage.French:
+                    return dialog.textfr;
+                default:
+                    return dialog.texten;
+            }
+        }
+        
+        public static string GetChoosenChoice(string id)
+        {
+            var choice = GetChoice(id);
+            switch (GameData.chosenLanguage)
+            {
+                case ChosenLanguage.English:
+                    return choice.texten;
+                case ChosenLanguage.French:
+                    return choice.textfr;
+                default:
+                    return choice.texten;
+            }
+        }
+        
     }
 }

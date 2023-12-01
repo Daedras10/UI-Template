@@ -17,5 +17,11 @@ namespace ScriptableObjects
         [field: SerializeField] public string id;
         [field: SerializeField] public bool ChoiceAfter => choicesID.Count > 0;
         [field: SerializeField] public List<string> choicesID;
+
+        public DialogsData(string id, List<string> choicesID)
+        {
+            this.id = id;
+            this.choicesID = new List<string>(choicesID);
+        }
     }
 }

@@ -54,3 +54,7 @@
 .Opt {
     -unity-text-align: middle-center;
 }
+
+.Choice:hover {
+    background-color: rgb(255, 171, 6);
+}

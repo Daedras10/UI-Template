@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Managers;
 using UI;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -15,14 +17,17 @@ public class DialogUI : ToolkitCanvasUI
     
     private VisualElement leftSide;
     private VisualElement rightSide;
+
+    private VisualElement choicesVisualElement;
     
     public bool overrideTimeAndFinish = false;
 
     public event Action OnDialogFullyShown; 
+    public static event Action<string> OnChoiceSelected;
     
     protected override void Init()
     {
-        dialogParent = root.Q<VisualElement>("DialogsScroll"); //.Children().First().Children().First().Children().First();
+        dialogParent = root.Q<VisualElement>("DialogsScroll");
         leftCharacterName = root.Q<Label>("LeftCharacterName");
         rightCharacterName = root.Q<Label>("RightCharacterName");
         
@@ -32,6 +37,9 @@ public class DialogUI : ToolkitCanvasUI
         leftSide = root.Q<VisualElement>("Left");
         rightSide = root.Q<VisualElement>("Right");
         
+        choicesVisualElement = root.Q<VisualElement>("Choices");
+        
+        ClearChoices();
         Hide();
     }
     
@@ -108,7 +116,38 @@ public class DialogUI : ToolkitCanvasUI
         OnDialogFullyShown?.Invoke();
     }
 
-    private void Hide()
+    private void ClearChoices()
+    {
+        choicesVisualElement.Clear();
+    }
+    
+    public void DisplayChoices(List<(string, string)> choices)
+    {
+        ClearChoices();
+
+        for (int i = 0; i < choices.Count; i++)
+        {
+            AddChoice(choices[i].Item1, choices[i].Item2, i + 1);
+        }
+    }
+    
+    private void AddChoice(string choiceText, string target, int index)
+    {
+        Label label = new Label("" + index + ". " + choiceText);
+        label.AddToClassList("Choice");
+        label.AddToClassList("DialogText");
+        label.RegisterCallback<ClickEvent,string>( SelectChoice, target );
+        
+        choicesVisualElement.Add(label);
+    }
+
+    private void SelectChoice(ClickEvent ce, string choice)
+    {
+        OnChoiceSelected?.Invoke(choice);
+        ClearChoices();
+    }
+
+    public void Hide()
     {
         root.style.visibility = Visibility.Hidden;
         HideLeftSide();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,21 @@ namespace Managers
         [SerializeField] private bool dialogIsDisplaying = false;
         [SerializeField] private List<DialogsData> dialogsToDisplay = new List<DialogsData>();
         
+        [SerializeField] private bool nextIsChoice = false;
+        [SerializeField] private List<string> choicesToDisplay = new List<string>();
+
+        public static Action StartDialogEvent;
+        
         private void Start()
         {
             dialogsToDisplay = dialogsSo.Dialogs.ToList();
+            StartDialogEvent += StartDialog;
         }
 
         [ContextMenu("Start Dialog")]
         public void StartDialog()
         {
+            StartDialogEvent -= StartDialog;
             dialogUI.OnDialogFullyShown += ContinueDialogIfPossible;
             dialogUI.overrideTimeAndFinish = false;
             ContinueDialogIfPossible();
@@ -35,11 +43,36 @@ namespace Managers
         private void FinishDialog()
         {
             dialogUI.OnDialogFullyShown -= ContinueDialogIfPossible;
+            dialogUI.Hide();
+        }
+        
+        private void ContinueDialogAfterChoice(string choice)
+        {
+            DialogUI.OnChoiceSelected -= ContinueDialogAfterChoice;
+            
+            dialogsToDisplay.Insert(0, new DialogsData(choice, new List<string>()));
+            ContinueDialogIfPossible();
         }
         
         private void ContinueDialogIfPossible()
         {
             dialogIsDisplaying = false;
+            
+            if (nextIsChoice)
+            {
+                nextIsChoice = false;
+                
+                List<(string, string)> choices = new List<(string, string)>();
+
+                for (int i = 0; i < choicesToDisplay.Count; i++)
+                {
+                    choices.Add((JsonLoader.GetChoosenChoice(choicesToDisplay[i] ), JsonLoader.GetChoice(choicesToDisplay[i]).nextdialog));
+                }
+                
+                DialogUI.OnChoiceSelected += ContinueDialogAfterChoice;
+                dialogUI.DisplayChoices(choices);
+                return;
+            }
             
             
             if (dialogsToDisplay.Count == 0)
@@ -50,12 +83,11 @@ namespace Managers
             
             if (dialogsToDisplay[0].ChoiceAfter)
             {
-                //TODO : display choices
+                nextIsChoice = true;
+                choicesToDisplay = dialogsToDisplay[0].choicesID.ToList();
             }
-            else
-            {
-                StartCoroutine(ContinueDialog());
-            }
+            
+            StartCoroutine(ContinueDialog());
         }
 
         private IEnumerator ContinueDialog()
