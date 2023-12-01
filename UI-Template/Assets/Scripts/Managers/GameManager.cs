@@ -5,8 +5,8 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        private static string mainMenuSceneName = "MainMenu";
-        private static string gameSceneName = "Gaming";
+        private static readonly string mainMenuSceneName = "MainMenu";
+        private static readonly string gameSceneName = "Gaming";
     
         public static event Action OnSettingsChanged;
         public static event Action OnLanguageChanged;
@@ -55,9 +55,9 @@ namespace Managers
             Application.Quit();
         }
 
-        public void LoadSettings()
+        private void LoadSettings()
         {
-            // Load settings from playerprefs
+            // Load settings from PlayerPrefs
             GameData.volume = PlayerPrefs.GetFloat("volume", 1f);
             GameData.soundMuted = PlayerPrefs.GetInt("soundMuted", 0) == 1;
             GameData.cubeScaleMin = PlayerPrefs.GetFloat("cubeScaleMin", 1f);
@@ -72,10 +72,10 @@ namespace Managers
             else GameData.cubeColor = Color.white;
 
         }
-    
-        public void SaveSettings()
+
+        private void SaveSettings()
         { 
-            // Save settings to playerprefs
+            // Save settings to PlayerPrefs
             PlayerPrefs.SetFloat("volume", GameData.volume);
             PlayerPrefs.SetInt("soundMuted", GameData.soundMuted ? 1 : 0);
             PlayerPrefs.SetFloat("cubeScaleMin", GameData.cubeScaleMin);
@@ -90,7 +90,7 @@ namespace Managers
         
             if (audioSource == null)
             {
-                audioSource = Camera.main.GetComponent<AudioSource>();
+                if (Camera.main != null) audioSource = Camera.main.GetComponent<AudioSource>();
             }
 
             audioSource.volume = GameData.volume;

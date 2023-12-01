@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ScriptableObjects;
+using UI;
 using UnityEngine;
 
 namespace Managers
@@ -17,10 +18,10 @@ namespace Managers
         [SerializeField, Tooltip("In seconds")] private float timeBetweenLetters = 0.1f;
         [SerializeField, Tooltip("In seconds")] private float timeBetweenDialogs = 1.5f;
         
-        [SerializeField] private bool dialogIsDisplaying = false;
+        [SerializeField] private bool dialogIsDisplaying;
         [SerializeField] private List<DialogsData> dialogsToDisplay = new List<DialogsData>();
         
-        [SerializeField] private bool nextIsChoice = false;
+        [SerializeField] private bool nextIsChoice;
         [SerializeField] private List<string> choicesToDisplay = new List<string>();
 
         public static Action StartDialogEvent;
@@ -36,13 +37,17 @@ namespace Managers
         {
             StartDialogEvent -= StartDialog;
             dialogUI.OnDialogFullyShown += ContinueDialogIfPossible;
+            DialogUI.TryToSkip += TryToSkip;
             dialogUI.overrideTimeAndFinish = false;
             ContinueDialogIfPossible();
         }
         
-        private void FinishDialog()
+        private IEnumerator FinishDialog()
         {
+            yield return new WaitForSeconds(timeBetweenDialogs*2);
+            
             dialogUI.OnDialogFullyShown -= ContinueDialogIfPossible;
+            DialogUI.TryToSkip -= TryToSkip;
             dialogUI.Hide();
         }
         
@@ -62,13 +67,8 @@ namespace Managers
             {
                 nextIsChoice = false;
                 
-                List<(string, string)> choices = new List<(string, string)>();
+                List<(string, string)> choices = choicesToDisplay.Select(t => (JsonLoader.GetChoosenChoice(t), JsonLoader.GetChoice(t).nextdialog)).ToList();
 
-                for (int i = 0; i < choicesToDisplay.Count; i++)
-                {
-                    choices.Add((JsonLoader.GetChoosenChoice(choicesToDisplay[i] ), JsonLoader.GetChoice(choicesToDisplay[i]).nextdialog));
-                }
-                
                 DialogUI.OnChoiceSelected += ContinueDialogAfterChoice;
                 dialogUI.DisplayChoices(choices);
                 return;
@@ -77,7 +77,7 @@ namespace Managers
             
             if (dialogsToDisplay.Count == 0)
             {
-                FinishDialog();
+                StartCoroutine(FinishDialog() );
                 return;
             }
             
@@ -119,6 +119,16 @@ namespace Managers
                     dialogUI.DisplayDialog(dialog.textfr, dialog.talkerfr, dialog.sideleft == 1, timeBetweenLetters);
                     break;
             }
+        }
+
+        private void TryToSkip()
+        {
+            if (dialogIsDisplaying)
+            {
+                dialogUI.overrideTimeAndFinish = true;
+            }
+            
+            // cancel wait if possible
         }
     }
 }

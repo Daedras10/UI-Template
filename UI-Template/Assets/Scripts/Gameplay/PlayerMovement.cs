@@ -1,4 +1,3 @@
-using System;
 using Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -53,7 +52,7 @@ namespace Gameplay
         
         private void OnMovement(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
-            var movement = obj.ReadValue<Vector2>();
+            movement = obj.ReadValue<Vector2>();
             player.position += new Vector3(movement.x, movement.y, 0) * (moveSpeed * Time.deltaTime);
         }
         

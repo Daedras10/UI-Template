@@ -11,11 +11,10 @@ namespace ScriptableObjects
         [field: SerializeField] public List<DialogsData> Dialogs { get; private set; }
     }
 
-    [Serializable]
-    public class DialogsData
+    [Serializable] public class DialogsData
     {
         [field: SerializeField] public string id;
-        [field: SerializeField] public bool ChoiceAfter => choicesID.Count > 0;
+        public bool ChoiceAfter => choicesID.Count > 0;
         [field: SerializeField] public List<string> choicesID;
 
         public DialogsData(string id, List<string> choicesID)

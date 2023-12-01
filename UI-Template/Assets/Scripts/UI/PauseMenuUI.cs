@@ -1,4 +1,3 @@
-using System;
 using Managers;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -29,13 +28,13 @@ namespace UI
             mainMenuButton.RegisterCallback<ClickEvent>(ev => GameManager.instance.LoadMainMenu() );
             quitButton.RegisterCallback<ClickEvent>(ev => Application.Quit() );
         }
-        
-        public void Show()
+
+        private void Show()
         {
             root.style.visibility = Visibility.Visible;
         }
-        
-        public void Hide()
+
+        private void Hide()
         {
             root.style.visibility = Visibility.Hidden;
         }

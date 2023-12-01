@@ -1,7 +1,6 @@
 using System.Linq;
 using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace UI
@@ -10,7 +9,7 @@ namespace UI
     {
         [SerializeField] private SettingsUI settingsUI;
         [SerializeField] private SavesUI savesUI;
-        [SerializeField] private bool playerHasSaves = false;
+        [SerializeField] private bool playerHasSaves;
         
         private Button settingsButton;
         private Button playButton;
@@ -38,10 +37,10 @@ namespace UI
             }
         }
         
-        private Button GetButtonFromTmplInst(string name)
+        private Button GetButtonFromTmplInst(string tmpInstName)
         {
             // Settings button (in template instance so we can't use Q<Button>("SettingsB"))
-            return (Button)root.Q<VisualElement>(name).Children().First();
+            return (Button)root.Q<VisualElement>(tmpInstName).Children().First();
         }
 
         protected override void UpdateLanguage()

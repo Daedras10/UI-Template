@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Managers;
 using UnityEngine;
@@ -214,8 +213,8 @@ namespace UI
         {
             return root.style.display == DisplayStyle.Flex;
         }
-        
-        public static string GetTabName(SettingsTabs tab)
+
+        private static string GetTabName(SettingsTabs tab)
         {
             switch (tab)
             {

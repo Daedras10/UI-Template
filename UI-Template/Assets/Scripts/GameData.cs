@@ -1,7 +1,7 @@
 using Managers;
 using UnityEngine;
 
-public class GameData
+public static class GameData
 {
     public static bool dataLoaded = false;
     
@@ -15,7 +15,7 @@ public class GameData
     public static ChosenLanguage chosenLanguage = ChosenLanguage.English;
     
     
-    /* JsonDatas */
+    /* JsonData */
     public static JsonLoader.AllDialogs allDialogs = new JsonLoader.AllDialogs();
     public static JsonLoader.AllChoices allChoices = new JsonLoader.AllChoices();
     public static JsonLoader.AllUitranslations allUitranslations = new JsonLoader.AllUitranslations();

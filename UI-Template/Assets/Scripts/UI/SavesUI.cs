@@ -45,8 +45,8 @@ public class SavesUI : ToolkitCanvasUI
     {
         root.style.visibility = Visibility.Visible;
     }
-    
-    public void Hide()
+
+    private void Hide()
     {
         root.style.visibility = Visibility.Hidden;
     }
