@@ -1,0 +1,76 @@
+{
+  "dialog" : [
+    {
+      "id" : "prefab",
+      "talkerfr" : "talker_name",
+      "talkeren" : "talker_name",
+      "textfr" : "text",
+      "texten" : "text",
+      "sideleft" : 1
+    },
+    {
+      "id" : "Dial_1_1",
+      "talkerfr" : "Joueur",
+      "talkeren" : "Player",
+      "textfr" : "Je suis un cube qui peut se déplacer avec ZQSD / WASD ou les flèches.",
+      "texten" : "I am a cube that can move with ZQSD / WASD or arrows.",
+      "sideleft" : 1
+    },
+    {
+      "id" : "Dial_1_2",
+      "talkerfr" : "Une voix",
+      "talkeren" : "A voice",
+      "textfr" : "Il n'y a pas d'objectif ou d'interactions une fois que vous avez passé nos dialogues",
+      "texten" : "Their is no objective or interactions once you have past our dialogs",
+      "sideleft" : 0
+    },
+    {
+      "id" : "Dial_1_3",
+      "talkerfr" : "Le Narrateur",
+      "talkeren" : "The Narrator",
+      "textfr" : "Avez-vous des questions ?",
+      "texten" : "Do you have any questions ?",
+      "sideleft" : 0
+    },
+    {
+      "id" : "Dial_1_4_1",
+      "talkerfr" : "Le Narrateur",
+      "talkeren" : "The Narrator",
+      "textfr" : "Non vous n'en avez pas !",
+      "texten" : "No you do no !",
+      "sideleft" : 0
+    },
+    {
+      "id" : "Dial_1_4_2",
+      "talkerfr" : "Le Narrateur",
+      "talkeren" : "The Narrator",
+      "textfr" : "Comme je le pensais !",
+      "texten" : "I thought so !",
+      "sideleft" : 0
+    },
+    {
+      "id" : "Dial_1_4_3",
+      "talkerfr" : "Le Narrateur",
+      "talkeren" : "The Narrator",
+      "textfr" : "Pourquoi partir ? Vous n'avez rien à faire !",
+      "texten" : "Why would you leave ? You have nothing to do !",
+      "sideleft" : 0
+    },
+    {
+      "id" : "Dial_1_5",
+      "talkerfr" : "Le Narrateur",
+      "talkeren" : "The Narrator",
+      "textfr" : "Bref, je vais vous laisser, profitez du vide.",
+      "texten" : "Anyways, I'm going to leave you now, enjoy the nothingness.",
+      "sideleft" : 0
+    },
+    {
+      "id" : "Dial_1_6",
+      "talkerfr" : "Joueur",
+      "talkeren" : "Player",
+      "textfr" : "Bon, je suppose que je peux appuyer sur ESC et quitter le jeu maintenant.",
+      "texten" : "Well, I guess I can just press ESC and leave the game now.",
+      "sideleft" : 1
+    }
+  ]
+}

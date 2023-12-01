@@ -1,0 +1,47 @@
+.CharacterName {
+    color: rgb(255, 255, 255);
+    font-size: 300%;
+    -unity-text-align: upper-center;
+    padding-top: 4%;
+    padding-right: 4%;
+    padding-bottom: 4%;
+    padding-left: 4%;
+    -unity-font-style: bold-and-italic;
+}
+
+.CharacterBorder {
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+    padding-top: 6%;
+    padding-right: 6%;
+    padding-bottom: 6%;
+    padding-left: 6%;
+    border-left-color: rgb(129, 214, 255);
+    border-right-color: rgb(129, 214, 255);
+    border-top-color: rgb(129, 214, 255);
+    border-bottom-color: rgb(129, 214, 255);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+}
+
+.DialogsContainer {
+    padding-top: 4%;
+    padding-right: 4%;
+    padding-bottom: 4%;
+    padding-left: 4%;
+}
+
+.DialogText {
+    color: rgb(255, 255, 255);
+    font-size: 150%;
+    flex-wrap: wrap;
+    white-space: normal;
+}

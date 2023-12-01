@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Managers;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,7 +21,7 @@ namespace UI
         private Toggle muteToggle;
         private MinMaxSlider scaleMinMax;
         private DropdownField colorDropDown;
-        private RadioButtonGroup radioButtonGroup;
+        private RadioButtonGroup languageRadioButtonGroup;
 
         protected override void Init()
         {
@@ -66,8 +67,8 @@ namespace UI
             colorDropDown = root.Q<DropdownField>("ColorDropDown");
             colorDropDown.RegisterValueChangedCallback(ev => OnColorDropDownChanged(ev.newValue));
             
-            radioButtonGroup = root.Q<RadioButtonGroup>("RadioButtonGroup");
-            radioButtonGroup.RegisterValueChangedCallback(ev => OnRadioButtonGroupChanged(ev.newValue));
+            languageRadioButtonGroup = root.Q<RadioButtonGroup>("RadioButtonGroup");
+            languageRadioButtonGroup.RegisterValueChangedCallback(ev => OnRadioButtonGroupChanged(ev.newValue));
             
             
             // Set value to settings by default
@@ -90,7 +91,8 @@ namespace UI
                 colorDropDown.SetValueWithoutNotify("Blue");
             else
                 colorDropDown.SetValueWithoutNotify("White");
-            // TODO : Set radio button
+            
+            languageRadioButtonGroup.SetValueWithoutNotify( GetRadioButtonFromLanguage(GameData.chosenLanguage) );
         }
         
         
@@ -135,8 +137,34 @@ namespace UI
         
         private void OnRadioButtonGroupChanged(int value)
         {
-            // TODO : Change radio button
+            GameData.chosenLanguage = GetLanguageFromRadioButton(value);
             GameManager.instance.ApplySettings();
+        }
+        
+        private ChosenLanguage GetLanguageFromRadioButton(int value)
+        {
+            switch (value)
+            {
+                case 0:
+                    return ChosenLanguage.English;
+                case 1:
+                    return ChosenLanguage.French;
+                default:
+                    return ChosenLanguage.English;
+            }
+        }
+        
+        private int GetRadioButtonFromLanguage(ChosenLanguage language)
+        {
+            switch (language)
+            {
+                case ChosenLanguage.English:
+                    return 0;
+                case ChosenLanguage.French:
+                    return 1;
+                default:
+                    return 0;
+            }
         }
         
         private void ShowOnlyFirstTab()
@@ -198,6 +226,21 @@ namespace UI
                 default:
                     return "";
             }
+        }
+        
+        protected override void UpdateLanguage()
+        {
+            root.Q<Label>("Settings_tile").text = JsonLoader.GetChoosenUitranslation("SettingsTitle");
+            
+            ((Button)root.Q<VisualElement>("AudioB").Children().First()).text = JsonLoader.GetChoosenUitranslation("AudioB");
+            ((Button)root.Q<VisualElement>("GameplayB").Children().First()).text = JsonLoader.GetChoosenUitranslation("GameplayB");
+            
+            root.Q<Slider>("VolumeSlider").label = JsonLoader.GetChoosenUitranslation("VolumeL");
+            root.Q<Toggle>("MuteToggle").text = JsonLoader.GetChoosenUitranslation("MuteL");
+            root.Q<MinMaxSlider>("ScaleMinMax").label = JsonLoader.GetChoosenUitranslation("ScaleL");
+            root.Q<DropdownField>("ColorDropDown").label = JsonLoader.GetChoosenUitranslation("ColorL");
+            root.Q<RadioButtonGroup>("RadioButtonGroup").label = JsonLoader.GetChoosenUitranslation("LanguageL");
+            root.Q<Foldout>("OtherOptions").text = JsonLoader.GetChoosenUitranslation("OtherOptions");
         }
     }
     

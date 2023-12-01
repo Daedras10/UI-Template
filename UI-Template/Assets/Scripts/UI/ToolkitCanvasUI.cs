@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,9 +14,17 @@ namespace UI
         {
             root = menuUiDocument.rootVisualElement;
             Init();
+            
+            UpdateLanguage();
+            GameManager.OnLanguageChanged += UpdateLanguage;
         }
 
         protected virtual void Init()
+        {
+            
+        }
+        
+        protected virtual void UpdateLanguage()
         {
             
         }

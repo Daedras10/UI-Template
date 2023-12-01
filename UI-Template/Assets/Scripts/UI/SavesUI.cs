@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UI;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -48,5 +49,18 @@ public class SavesUI : ToolkitCanvasUI
     public void Hide()
     {
         root.style.visibility = Visibility.Hidden;
+    }
+
+    protected override void UpdateLanguage()
+    {
+        var tmplRoot = root.Q<VisualElement>("Save1");
+        var button = tmplRoot.Q<Button>("NewGameB");
+        button.text = JsonLoader.GetChoosenUitranslation("NewGameB");
+        
+        tmplRoot = root.Q<VisualElement>("Save2");
+        button = tmplRoot.Q<Button>("NewGameB");
+        button.text = JsonLoader.GetChoosenUitranslation("NewGameB");
+        
+        root.Q<Label>("Settings_tile").text = JsonLoader.GetChoosenUitranslation("SaveTitle");
     }
 }

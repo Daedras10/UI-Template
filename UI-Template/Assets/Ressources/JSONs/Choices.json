@@ -1,0 +1,28 @@
+{
+  "choice" : [
+    {
+      "id" : "prefab",
+      "textfr" : "choix",
+      "texten" : "choice",
+      "nextdialog" : "Dial_id"
+    },
+    {
+      "id" : "Choice_1_1",
+      "textfr" : "Oui, en effet, j'ai quelques questions.",
+      "texten" : "Yes, actually, I have some questions.",
+      "nextdialog" : "Dial_1_4_1"
+    },
+    {
+      "id" : "Choice_1_2",
+      "textfr" : "Non, merci, je n'ai pas de questions.",
+      "texten" : "No, thank you, I don't have any questions.",
+      "nextdialog" : "Dial_1_4_2"
+    },
+    {
+      "id" : "Choice_1_3",
+      "textfr" : "Je vais juste partir si ça ne vous dérange pas.",
+      "texten" : "I will just leave if you don't mind.",
+      "nextdialog" : "Dial_1_4_3"
+    }
+  ]
+}

@@ -13,8 +13,6 @@
                         <ui:Instance template="MainMenuButton" name="GameplayB" style="flex-shrink: 0;">
                             <AttributeOverrides element-name="MainMenuB" text="Gameplay" />
                         </ui:Instance>
-                        <ui:Instance template="MainMenuButton" name="MainMenuButton" style="flex-shrink: 0;" />
-                        <ui:Instance template="MainMenuButton" name="MainMenuButton" style="flex-shrink: 0;" />
                     </ui:VisualElement>
                     <ui:VisualElement name="OptionsContainer" style="flex-grow: 8; width: 100%; padding-top: 5%; padding-right: 8%; padding-bottom: 5%; padding-left: 8%;">
                         <ui:VisualElement name="AudioContainer" class="OptContainers" style="flex-grow: 1;">
@@ -33,8 +31,8 @@
                                 <ui:DropdownField label="Color" index="-1" choices="Red,Green,Blue" name="ColorDropDown" class="Opt" style="flex-grow: 1;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; height: 15%;">
-                                <ui:Foldout text="Other options" name="Foldout" value="true" class="Opt" style="flex-grow: 1;">
-                                    <ui:RadioButtonGroup label="Radio Button Group" value="-1" choices="A,B,C,D" usage-hints="None" name="RadioButtonGroup" style="flex-grow: 1;" />
+                                <ui:Foldout text="Other options" name="OtherOptions" value="true" class="Opt" style="flex-grow: 1;">
+                                    <ui:RadioButtonGroup label="Radio Button Group" value="0" choices="English,French" usage-hints="None" name="RadioButtonGroup" style="flex-grow: 1;" />
                                 </ui:Foldout>
                             </ui:VisualElement>
                         </ui:VisualElement>

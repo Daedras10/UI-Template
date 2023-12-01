@@ -1,0 +1,124 @@
+{
+  "uitranslation" : [
+    {
+      "id" : "prefab",
+      "textfr" : "textfr",
+      "texten" : "texten"
+    },
+    {
+      "id" : "PlayB",
+      "textfr" : "Jouer",
+      "texten" : "Play"
+    },
+    {
+      "id" : "LoadB",
+      "textfr" : "Charger",
+      "texten" : "Load"
+    },
+    {
+      "id" : "SettingsB",
+      "textfr" : "Options",
+      "texten" : "Settings"
+    },
+    {
+      "id" : "QuitB",
+      "textfr" : "Quitter",
+      "texten" : "Quit"
+    },
+    {
+      "id" : "MainMenuB",
+      "textfr" : "Menu\nPrincipal",
+      "texten" : "Main Menu"
+    },
+    {
+      "id" : "ResumeB",
+      "textfr" : "Reprendre",
+      "texten" : "Resume"
+    },
+    {
+      "id" : "NewGameB",
+      "textfr" : "Lancer une\nNouvelle Partie",
+      "texten" : "Start a New\nGame"
+    },
+    {
+      "id" : "SaveTitle",
+      "textfr" : "Sauvegardes",
+      "texten" : "Save slots"
+    },
+    {
+      "id" : "SettingsTitle",
+      "textfr" : "Options",
+      "texten" : "Settings"
+    },
+    {
+      "id" : "AudioB",
+      "textfr" : "Son",
+      "texten" : "Audio"
+    },
+    {
+      "id" : "GameplayB",
+      "textfr" : "Jouabilité",
+      "texten" : "Gameplay"
+    },
+    {
+      "id" : "VolumeL",
+      "textfr" : "Volume",
+      "texten" : "Volume"
+    },
+    {
+      "id" : "MuteL",
+      "textfr" : "Muet",
+      "texten" : "Mute"
+    },
+    {
+      "id" : "ScaleL",
+      "textfr" : "Echelle",
+      "texten" : "Scale"
+    },
+    {
+      "id" : "ColorL",
+      "textfr" : "Couleur",
+      "texten" : "Color"
+    },
+    {
+      "id" : "LanguageL",
+      "textfr" : "Langue",
+      "texten" : "Language"
+    },
+    {
+      "id" : "OtherOptions",
+      "textfr" : "Autres Options",
+      "texten" : "Other Options"
+    },
+    {
+      "id" : "prefab",
+      "textfr" : "textfr",
+      "texten" : "texten"
+    },
+    {
+      "id" : "prefab",
+      "textfr" : "textfr",
+      "texten" : "texten"
+    },
+    {
+      "id" : "prefab",
+      "textfr" : "textfr",
+      "texten" : "texten"
+    },
+    {
+      "id" : "prefab",
+      "textfr" : "textfr",
+      "texten" : "texten"
+    },
+    {
+      "id" : "prefab",
+      "textfr" : "textfr",
+      "texten" : "texten"
+    },
+    {
+      "id" : "prefab",
+      "textfr" : "textfr",
+      "texten" : "texten"
+    }
+  ]
+}

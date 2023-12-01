@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2822bf5e35b74e2288547479398cb79b, type: 3}
+  m_Name: InitialDialog
+  m_EditorClassIdentifier: 
+  <Dialogs>k__BackingField:
+  - id: Dial_1_1
+    choicesID: []
+  - id: Dial_1_2
+    choicesID: []
+  - id: Dial_1_3
+    choicesID:
+    - Choice_1_1
+    - Choice_1_2
+    - Choice_1_3
+  - id: Dial_1_5
+    choicesID: []
+  - id: Dial_1_6
+    choicesID: []

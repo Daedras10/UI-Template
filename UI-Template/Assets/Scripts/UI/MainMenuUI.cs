@@ -1,4 +1,5 @@
 using System.Linq;
+using Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -13,6 +14,8 @@ namespace UI
         
         private Button settingsButton;
         private Button playButton;
+        private Button quitButton;
+        private Button loadButton;
         
         protected override void Init()
         {
@@ -22,8 +25,12 @@ namespace UI
             playButton = GetButtonFromTmplInst("PlayB");
             playButton.RegisterCallback<ClickEvent>(ev => savesUI.Show());
             
+            loadButton = GetButtonFromTmplInst("LoadB");
             
-            if (!playerHasSaves) // TODO : Check if player has saves
+            quitButton = GetButtonFromTmplInst("QuitB");
+            quitButton.RegisterCallback<ClickEvent>(ev => Application.Quit() );
+            
+            if (!playerHasSaves)
             {
                 // Disable Continue button
                 var continueButton = GetButtonFromTmplInst("LoadB");
@@ -35,6 +42,14 @@ namespace UI
         {
             // Settings button (in template instance so we can't use Q<Button>("SettingsB"))
             return (Button)root.Q<VisualElement>(name).Children().First();
+        }
+
+        protected override void UpdateLanguage()
+        {
+            playButton.text = JsonLoader.GetChoosenUitranslation("PlayB");
+            loadButton.text = JsonLoader.GetChoosenUitranslation("LoadB");
+            settingsButton.text = JsonLoader.GetChoosenUitranslation("SettingsB");
+            quitButton.text = JsonLoader.GetChoosenUitranslation("QuitB");
         }
     }
 }
