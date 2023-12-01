@@ -8,6 +8,7 @@ namespace Gameplay
     {
         [Header("Components")]
         [SerializeField] private Transform player;
+        [SerializeField] private Material playerMaterial;
 
         [Header("Settings")]
         [SerializeField] private float moveSpeed = 5f;
@@ -16,8 +17,17 @@ namespace Gameplay
 
         private void Start()
         {
-            float scale = Random.Range(1f, 3f);
+            RecalculateData();
+            GameManager.instance.ApplySettings();
+            GameManager.OnSettingsChanged += RecalculateData;
+        }
+
+        private void RecalculateData()
+        {
+            float scale = Random.Range(GameData.cubeScaleMin, GameData.cubeScaleMax);
             player.localScale = new Vector3(scale, scale, 1);
+            
+            playerMaterial.color = GameData.cubeColor;
         }
         
         private void Update()

@@ -19,22 +19,22 @@
                     <ui:VisualElement name="OptionsContainer" style="flex-grow: 8; width: 100%; padding-top: 5%; padding-right: 8%; padding-bottom: 5%; padding-left: 8%;">
                         <ui:VisualElement name="AudioContainer" class="OptContainers" style="flex-grow: 1;">
                             <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
-                                <ui:Slider picking-mode="Ignore" label="Sound" value="42" high-value="100" class="Opt" style="width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                                <ui:Slider picking-mode="Ignore" label="Sound" value="1" high-value="1" name="VolumeSlider" class="Opt" style="width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
-                                <ui:Toggle label="Muted" class="Opt" />
+                                <ui:Toggle label="Muted" name="MuteToggle" class="Opt" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement name="GameplayContainer" class="OptContainers" style="flex-grow: 1; visibility: visible; display: flex;">
                             <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
-                                <ui:MinMaxSlider picking-mode="Ignore" label="Cube random Scale" min-value="1" max-value="3" low-limit="1" high-limit="5" class="Opt" style="flex-grow: 1;" />
+                                <ui:MinMaxSlider picking-mode="Ignore" label="Cube random Scale" min-value="1" max-value="3" low-limit="1" high-limit="5" name="ScaleMinMax" class="Opt" style="flex-grow: 1;" />
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 15%;">
-                                <ui:DropdownField label="Color" index="-1" choices="Red,Green,Blue" class="Opt" style="flex-grow: 1;" />
+                                <ui:DropdownField label="Color" index="-1" choices="Red,Green,Blue" name="ColorDropDown" class="Opt" style="flex-grow: 1;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; height: 15%;">
-                                <ui:Foldout text="Other options" name="Foldout" value="false" class="Opt" style="flex-grow: 1;">
-                                    <ui:RadioButtonGroup label="Radio Button Group" value="-1" choices="A,B,C,D" usage-hints="None" style="flex-grow: 1;" />
+                                <ui:Foldout text="Other options" name="Foldout" value="true" class="Opt" style="flex-grow: 1;">
+                                    <ui:RadioButtonGroup label="Radio Button Group" value="-1" choices="A,B,C,D" usage-hints="None" name="RadioButtonGroup" style="flex-grow: 1;" />
                                 </ui:Foldout>
                             </ui:VisualElement>
                         </ui:VisualElement>

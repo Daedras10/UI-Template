@@ -16,6 +16,11 @@ namespace UI
         private VisualElement closeBg;
         private SettingsTabs currentTab = SettingsTabs.Audio;
 
+        private Slider volumeSlider;
+        private Toggle muteToggle;
+        private MinMaxSlider scaleMinMax;
+        private DropdownField colorDropDown;
+        private RadioButtonGroup radioButtonGroup;
 
         protected override void Init()
         {
@@ -36,6 +41,102 @@ namespace UI
             gameplayTab.RegisterCallback<ClickEvent>(ev => SelectTab(SettingsTabs.Gameplay));
             
             ShowOnlyFirstTab();
+            SettingsChangedCallbacks();
+        }
+
+        private void SettingsChangedCallbacks()
+        {
+            /*
+             * VolumeSlider
+             * MuteToggle
+             * ScaleMinMax
+             * ColorDropDown
+             * RadioButtonGroup
+             */
+            
+            volumeSlider = root.Q<Slider>("VolumeSlider");
+            volumeSlider.RegisterValueChangedCallback(ev => OnVolumeSliderChanged(ev.newValue));
+            
+            muteToggle = root.Q<Toggle>("MuteToggle");
+            muteToggle.RegisterValueChangedCallback(ev => OnMuteToggleChanged(ev.newValue));
+            
+            scaleMinMax = root.Q<MinMaxSlider>("ScaleMinMax");
+            scaleMinMax.RegisterValueChangedCallback(ev => OnScaleMinMaxChanged(ev.newValue));
+            
+            colorDropDown = root.Q<DropdownField>("ColorDropDown");
+            colorDropDown.RegisterValueChangedCallback(ev => OnColorDropDownChanged(ev.newValue));
+            
+            radioButtonGroup = root.Q<RadioButtonGroup>("RadioButtonGroup");
+            radioButtonGroup.RegisterValueChangedCallback(ev => OnRadioButtonGroupChanged(ev.newValue));
+            
+            
+            // Set value to settings by default
+            SettingsChanged();
+            
+            GameManager.OnSettingsChanged += SettingsChanged;
+        }
+        
+        private void SettingsChanged()
+        {
+            volumeSlider.SetValueWithoutNotify(GameData.volume);
+            muteToggle.SetValueWithoutNotify(GameData.soundMuted);
+            scaleMinMax.SetValueWithoutNotify(new Vector2(GameData.cubeScaleMin, GameData.cubeScaleMax));
+
+            if (GameData.cubeColor == Color.red)
+                colorDropDown.SetValueWithoutNotify("Red");
+            else if (GameData.cubeColor == Color.green)
+                colorDropDown.SetValueWithoutNotify("Green");
+            else if (GameData.cubeColor == Color.blue)
+                colorDropDown.SetValueWithoutNotify("Blue");
+            else
+                colorDropDown.SetValueWithoutNotify("White");
+            // TODO : Set radio button
+        }
+        
+        
+        private void OnVolumeSliderChanged(float value)
+        {
+            GameData.volume = value;
+            GameManager.instance.ApplySettings();
+        }
+        
+        private void OnMuteToggleChanged(bool value)
+        {
+            GameData.soundMuted = value;
+            GameManager.instance.ApplySettings();
+        }
+        
+        private void OnScaleMinMaxChanged(Vector2 value)
+        {
+            GameData.cubeScaleMin = value.x;
+            GameData.cubeScaleMax = value.y;
+            GameManager.instance.ApplySettings();
+        }
+        
+        private void OnColorDropDownChanged(string value)
+        {
+            switch (value)
+            {
+                case "Red":
+                    GameData.cubeColor = Color.red;
+                    break;
+                case "Green":
+                    GameData.cubeColor = Color.green;
+                    break;
+                case "Blue":
+                    GameData.cubeColor = Color.blue;
+                    break;
+                default:
+                    GameData.cubeColor = Color.white;
+                    break;
+            }
+            GameManager.instance.ApplySettings();
+        }
+        
+        private void OnRadioButtonGroupChanged(int value)
+        {
+            // TODO : Change radio button
+            GameManager.instance.ApplySettings();
         }
         
         private void ShowOnlyFirstTab()
